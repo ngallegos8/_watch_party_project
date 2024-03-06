@@ -9,8 +9,7 @@ function UserHome() {
     const [events, setEvents] = useState([]);
     const [searchEvents, setSearchEvents] = useState("");
 
-    console.log(events)
-    console.log(searchEvents)
+    
 
     useEffect(() => {
         fetch("http://127.0.0.1:5555/events")
@@ -21,7 +20,9 @@ function UserHome() {
     function handleNewEventFormSubmit(newEvent) {
         setEvents([...events, newEvent])
     }
-
+    console.log(events)
+    console.log(searchEvents)
+    
     function handleUpdateEvent(newEvent) {
     const updatedEvents = events.map((event) => {
         if (event.id === newEvent.id) {
