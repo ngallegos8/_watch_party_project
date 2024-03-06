@@ -6,6 +6,8 @@ import VenueSignup from './venue_signup'
 import Home from './Home'
 import UserLogin from './userLogin'
 import VenueLogin from './venueLogin'
+import UserHome from './UserHome'
+
 //import UserLogin from './userLogin'
 
 
@@ -56,6 +58,9 @@ function App() {
           </Route>
           <Route exact path="/login/venue">
             <VenueLogin onLogin={setVenue}/>
+          </Route>
+          <Route>
+            <UserHome exact path="/user/home"/>
           </Route>
           <Route path="/">
             <Home/>
