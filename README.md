@@ -4,7 +4,7 @@
 
 - Discuss the basic directory structure of a full-stack Flask/React application.
 - Carry out the first steps in creating your Phase 4 project.
-
+//nick comment
 ---
 
 ## Introduction
