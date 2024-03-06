@@ -138,6 +138,17 @@ class CheckSession(Resource):
     
 api.add_resource(CheckSession, "/check_session")
 
+# class UserHome(Resource):
+#     def get(self):
+#         user_id = session["user_id"]
+
+#         if user_id:
+#             user = User.query.filter(User.id == user_id).first()
+#             return user.to_dict(), 200
+#         return {}, 401
+    
+# api.add_resource(UserHome, "/user/home")
+
 
 
 class AllEvents(Resource): # This class will be used to GET (read) all events & POST (create) a new event
