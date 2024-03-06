@@ -5,12 +5,6 @@ function NavBar(){
      <div>
         <nav clasname="navbar">
             <Link to="/">  Home    </Link>
-            
-            <Link to="/User">  User    </Link>
-            
-            <Link to="/Event">  Event    </Link>
-            
-            <Link to="/Venue">  Venue    </Link>
 
             <Link to="/signup/user">  Create Account    </Link>
 
