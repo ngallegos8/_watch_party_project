@@ -154,7 +154,8 @@ api.add_resource(CheckSession, "/check_session")
 class AllEvents(Resource): # This class will be used to GET (read) all events & POST (create) a new event
 
     def get(self): # GET method to retrieve all events
-        events = Event.order_by('created_at').all() # we could also make this Event.query.all()
+        # events = Event.order_by('created_at').all() # we could also make this Event.query.all()
+        events = Event.query.all()
         return [event.to_dict() for event in events], 200 
     
     def post(self): # POST method to create a new event

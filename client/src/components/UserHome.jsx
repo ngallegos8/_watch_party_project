@@ -5,7 +5,7 @@ import Search from "./Search";
 // Need to import user (object) info from "./userLogin" after login is successful
 
 function UserHome() {
-
+console.log("hello")
     const [events, setEvents] = useState([]);
     const [searchEvents, setSearchEvents] = useState("");
 
@@ -51,9 +51,10 @@ function UserHome() {
     return(
         <main>
             <h1>user page</h1>
-            <NewEventForm> onNewEventFormSubmit={handleNewEventFormSubmit}</NewEventForm>
+            <EventList events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}/>
+            {/* <NewEventForm> onNewEventFormSubmit={handleNewEventFormSubmit}</NewEventForm>
             <Search> search={searchEvents} setSearch={setSearchEvents} </Search>
-            <EventList> events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}</EventList>
+            <EventList> events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}</EventList> */}
         </main>
     );
 }

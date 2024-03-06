@@ -16,6 +16,7 @@ import UserHome from './UserHome'
 function App() {
   const [user, setUser] = useState(null);
   const [venue, setVenue] = useState(null);
+  console.log(UserHome)
 
   useEffect(() => {
 
@@ -59,8 +60,8 @@ function App() {
           <Route exact path="/login/venue">
             <VenueLogin onLogin={setVenue}/>
           </Route>
-          <Route>
-            <UserHome exact path="/user/home"/>
+          <Route exact path="/user/home">
+            <UserHome onLogin={setUser}/>
           </Route>
           <Route path="/">
             <Home/>
