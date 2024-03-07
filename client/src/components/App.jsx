@@ -6,12 +6,9 @@ import VenueSignup from './venue_signup'
 import Home from './Home'
 import UserLogin from './userLogin'
 import VenueLogin from './venueLogin'
-<<<<<<< HEAD
 import UserHome from './UserHome'
 import VenueHome from './VenueHome'
 
-=======
->>>>>>> alan
 //import UserLogin from './userLogin'
 
 
@@ -19,25 +16,9 @@ import VenueHome from './VenueHome'
 
 function App() {
   const [user, setUser] = useState(null);
-<<<<<<< HEAD
   // const [venue, setVenue] = useState(null);
   console.log(UserHome)
 
-=======
-  const [venue, setVenue] = useState(null);
-
-  useEffect(() => {
-
-    fetch("/check_session").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-    });
-  }, []);
-
-  // if (!user) return <UserLogin onLogin={setUser} />;
-
->>>>>>> alan
   // useEffect(() => {
 
   //   fetch("/check_session").then((r) => {
@@ -93,15 +74,12 @@ function App() {
             <VenueLogin />
             {/* <VenueLogin onLogin={setVenue}/> */}
           </Route>
-<<<<<<< HEAD
           <Route exact path="/user/home">
             <UserHome onLogin={setUser}/>
           </Route>
           <Route exact path="/venue/home">
             <VenueHome />
           </Route>
-=======
->>>>>>> alan
           <Route path="/">
             <Home/>
           </Route>
