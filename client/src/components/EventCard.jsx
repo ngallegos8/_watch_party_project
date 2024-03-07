@@ -43,17 +43,12 @@ function EventCard({ event, removeEvent, updateEvent }) {
 }
 
   function handleUpdateSubmit(e) {
-<<<<<<< HEAD
     e.preventDefault();
     
     // Format datetime to ISO 8601 format
     const formattedDateTime = new Date(dateTime).toISOString();
   
-    fetch(`http://127.0.0.1:5555/events/${event.id}`, {
-=======
-    e.preventDefault()
     fetch(`/events/${event.id}`, {
->>>>>>> jeff
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
@@ -112,7 +107,7 @@ function EventCard({ event, removeEvent, updateEvent }) {
       </button>
 
       <button onClick={handleDelete} className="remove-event">Delete Event</button>
-<<<<<<< HEAD
+
       {showUpdateForm && (
         <div>
             <h2>Update Event</h2>
@@ -126,20 +121,9 @@ function EventCard({ event, removeEvent, updateEvent }) {
             {/* <button type="submit" onSubmit={setShowUpdateForm}>Save Changes</button> */}
             <button type="submit">Save Changes</button>
             </form>
+            <button onClick={handleHost} >Host Event</button>
         </div>
         )}
-=======
-
-        <h2>Update Event</h2>
-        <form onSubmit={handleUpdateSubmit}>
-            <input type="text" name="name" placeholder="Update Event name" value={name} onChange={(e) => setName(e.target.value)}/>
-            <input type="text" name="dateTime" placeholder="Update Date and Time of Event" value={dateTime} onChange={(e) => setDateTime(e.target.value)}/>
-            <input type="text" name="description" placeholder="Update Description of Event (100 Chars Max)" value={description} onChange={(e) => setDescription(e.target.value)}/>
-
-            <button type="submit">Add Event</button>
-        </form>
-        <button onClick={handleHost} >Host Event</button>
->>>>>>> jeff
     </li>
   );
 }
