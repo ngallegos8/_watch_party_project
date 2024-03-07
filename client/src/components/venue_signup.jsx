@@ -53,10 +53,10 @@ function VenueSignup() {
             <>
                 <h1>New Venue</h1>
                 <form onSubmit={handleSignup}>
-                        <label>Enter Username</label>
+                        <label>Create Username</label>
                         <input type="text" value={name} onChange={(e) => setName(e.target.value)}></input><p></p>
 
-                        <label>Enter Password</label>
+                        <label>Create Password</label>
                         <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input><p></p>
 
                         <label>Enter Location</label>

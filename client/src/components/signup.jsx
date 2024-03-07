@@ -47,18 +47,17 @@ function Signup() {
     }
     else {
         return (
-            <>
+            <div className='user-signup'>
                 <h1>New User Account</h1>
                 <form onSubmit={handleSignup}>
-                        <label>Enter Username</label>
-                        <input type="text" value={name} onChange={(e) => setName(e.target.value)}></input><p></p>
-
-                        <label>Enter Password</label>
-                        <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input><p></p>
+                        <label>Create Username</label>
+                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                        <label>Create Password</label>
+                        <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input>
 
                         <button type="submit">Submit</button>
                 </form>
-            </>
+            </div>
         );
     };
 };
