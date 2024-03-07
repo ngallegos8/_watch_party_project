@@ -6,8 +6,6 @@ import VenueSignup from './venue_signup'
 import Home from './Home'
 import UserLogin from './userLogin'
 import VenueLogin from './venueLogin'
-import UserHome from './UserHome'
-
 //import UserLogin from './userLogin'
 
 
@@ -16,7 +14,6 @@ import UserHome from './UserHome'
 function App() {
   const [user, setUser] = useState(null);
   const [venue, setVenue] = useState(null);
-  console.log(UserHome)
 
   useEffect(() => {
 
@@ -27,7 +24,7 @@ function App() {
     });
   }, []);
 
-  if (!user) return <UserLogin onLogin={setUser} />;
+  // if (!user) return <UserLogin onLogin={setUser} />;
 
   // useEffect(() => {
 
@@ -59,9 +56,6 @@ function App() {
           </Route>
           <Route exact path="/login/venue">
             <VenueLogin onLogin={setVenue}/>
-          </Route>
-          <Route exact path="/user/home">
-            <UserHome onLogin={setUser}/>
           </Route>
           <Route path="/">
             <Home/>
