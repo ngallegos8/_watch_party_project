@@ -73,6 +73,7 @@ function EventCard({ event, removeEvent, updateEvent }) {
       <h4>{event.name}</h4>
       <p>When: {event.date_time}</p>
       <p>{event.description}</p>
+      <p>Hosted By: {event.venue_id}</p>
 
       {/* NEED (Terenary?) LOGIC TO SHOW 'I WANT TO ATTEND vs. HOST' BASED ON IF YOU ARE A USER OR VENUE */}
       {/* <button onClick={handleAttend} className="attend-event" value={attendingCount} onChange={(e) => setAttendingCount={e.target.value}}></button> */}
