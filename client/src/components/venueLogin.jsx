@@ -48,7 +48,7 @@ function VenueLogin() {
   }
 
   return (
-        <div className="login-form">
+        <div className="vendor-login">
             <h1>Venue Log In</h1>
             <form onSubmit={handleSubmit}>
               <label>Enter Username</label>

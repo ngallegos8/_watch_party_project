@@ -50,24 +50,20 @@ function VenueSignup() {
     }
     else {
         return(
-            <>
+            <div className='vendor-signup'>
                 <h1>New Venue</h1>
                 <form onSubmit={handleSignup}>
                         <label>Create Username</label>
-                        <input type="text" value={name} onChange={(e) => setName(e.target.value)}></input><p></p>
-
+                        <input type="text" value={name} onChange={(e) => setName(e.target.value)}></input>
                         <label>Create Password</label>
-                        <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input><p></p>
-
+                        <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input>
                         <label>Enter Location</label>
-                        <input type="text" value={location} onChange={(e) => setLocation(e.target.value)}></input><p></p>
-
+                        <input type="text" value={location} onChange={(e) => setLocation(e.target.value)}></input>
                         <label>Enter Venue Name</label>
-                        <input type="text" value={venueName} onChange={(e) => setVenueName(e.target.value)}></input><p></p>
-
-                        <button type="submit">Submit</button>
+                        <input type="text" value={venueName} onChange={(e) => setVenueName(e.target.value)}></input>
+                        <button type="submit">Log in</button>
                 </form>
-            </>
+            </div>
         )
     }
 }

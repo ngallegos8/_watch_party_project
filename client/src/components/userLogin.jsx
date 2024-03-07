@@ -49,7 +49,7 @@ function UserLogin( {onLogin}) {
       }
     
       return(
-        <div className="login-form">
+        <div className="user-login">
             <h1>Log in to WatchParty</h1>
             <form onSubmit={handleSubmit}>
               <label>Enter Username</label>
