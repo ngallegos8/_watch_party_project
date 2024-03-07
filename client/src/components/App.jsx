@@ -18,16 +18,16 @@ function App() {
   const [venue, setVenue] = useState(null);
   console.log(UserHome)
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    fetch("/check_session").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-    });
-  }, []);
+  //   fetch("/check_session").then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((user) => setUser(user));
+  //     }
+  //   });
+  // }, []);
 
-  if (!user) return <UserLogin onLogin={setUser} />;
+  // if (!user) return <UserLogin onLogin={setUser} />;
 
   // useEffect(() => {
 

@@ -59,11 +59,11 @@ function EventCard({ event, removeEvent, updateEvent }) {
 
         <h2>Update Event</h2>
         <form onSubmit={handleUpdateSubmit}>
-            <input type="text" name="name" placeholder="Update Event name" value={name} onChange={(e) => setName(e.target.value)}/>
+            <input type="text" name="name" placeholder={event.name} value={name} onChange={(e) => setName(e.target.value)}/>
             <input type="text" name="dateTime" placeholder="Update Date and Time of Event" value={dateTime} onChange={(e) => setDateTime(e.target.value)}/>
             <input type="text" name="description" placeholder="Update Description of Event (100 Chars Max)" value={description} onChange={(e) => setDescription(e.target.value)}/>
 
-            <button type="submit">Add Event</button>
+            <button type="submit">Save Changes</button>
         </form>
     </li>
   );

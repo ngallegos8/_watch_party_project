@@ -20,8 +20,8 @@ console.log("hello")
     function handleNewEventFormSubmit(newEvent) {
         setEvents([...events, newEvent])
     }
-    console.log(events)
-    console.log(searchEvents)
+    // console.log(events)
+    // console.log(searchEvents)
     
     function handleUpdateEvent(newEvent) {
     const updatedEvents = events.map((event) => {
@@ -43,6 +43,7 @@ console.log("hello")
 
     //    ALLOWS SEARCH FUNCTION TO SEARCH FOR ANY RATIONAL PARAMETER IN THE EVENT OBJECT
     const displayedEvents = events.filter((event) => {
+        console.log(event)
         return event.name.toLowerCase().includes(searchEvents.toLowerCase()) ||
         event.date_time.toLowerCase().includes(searchEvents.toLowerCase()) ||
         event.venue_id.toLowerCase().includes(searchEvents.toLowerCase())
@@ -52,9 +53,8 @@ console.log("hello")
         <main>
             <h1>user page</h1>
             <EventList events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}/>
-            {/* <NewEventForm> onNewEventFormSubmit={handleNewEventFormSubmit}</NewEventForm>
-            <Search> search={searchEvents} setSearch={setSearchEvents} </Search>
-            <EventList> events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}</EventList> */}
+            <NewEventForm onNewEventFormSubmit={handleNewEventFormSubmit} />
+            <Search search={searchEvents} setSearch={setSearchEvents} />
         </main>
     );
 }
