@@ -207,8 +207,6 @@ class EventByID(Resource): # This class will be used to GET (read) a single even
             return {
                 "error": "Event not found"
             }, 404
-        
-
     
     def delete(self, id): # This method will delete a single event by id
         event = Event.query.filter_by(id=id).first()
@@ -237,7 +235,7 @@ class EventByIDHost(Resource):
         db.session.add(event)
         db.session.commit()
         return make_response(event.to_dict(), 200)
-api.add_resource(EventByIDHost, "/events/host/<int:id>") 
+api.add_resource(EventByIDHost, "/events/host/<int:id>")
 
 class EventByIDAttend(Resource):
 
