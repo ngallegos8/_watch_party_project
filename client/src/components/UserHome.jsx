@@ -9,8 +9,6 @@ console.log("hello")
     const [events, setEvents] = useState([]);
     const [searchEvents, setSearchEvents] = useState("");
 
-    
-
     useEffect(() => {
         fetch("http://127.0.0.1:5555/events")
           .then(response => response.json())
