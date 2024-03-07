@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 
@@ -8,6 +8,18 @@ function UserLogin( {onLogin}) {
     //const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const history = useHistory()
+    const [user, setUser] = useState(null);
+
+
+    useEffect(() => {
+
+        fetch("/check_session").then((r) => {
+          if (r.ok) {
+            r.json().then((user) => setUser(user));
+          }
+        });
+      }, []);
+    
 
     function handleSubmit(e) {
         e.preventDefault();
