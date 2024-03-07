@@ -7,6 +7,7 @@ import Home from './Home'
 import UserLogin from './userLogin'
 import VenueLogin from './venueLogin'
 import UserHome from './UserHome'
+import VenueHome from './VenueHome'
 
 //import UserLogin from './userLogin'
 
@@ -15,30 +16,31 @@ import UserHome from './UserHome'
 
 function App() {
   const [user, setUser] = useState(null);
-  const [venue, setVenue] = useState(null);
+  // const [venue, setVenue] = useState(null);
   console.log(UserHome)
-
-  useEffect(() => {
-
-    fetch("/check_session").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-    });
-  }, []);
-
-  if (!user) return <UserLogin onLogin={setUser} />;
 
   // useEffect(() => {
 
   //   fetch("/check_session").then((r) => {
   //     if (r.ok) {
-  //       r.json().then((venue) => setVenue(venue));
+  //       r.json().then((user) => setUser(user));
   //     }
   //   });
   // }, []);
 
-  // if (!venue) return <VenueLogin onLogin={setVenue} />;
+  // if (!user) return <UserLogin onLogin={setUser} />;
+
+  //  useEffect(() => {
+
+  //   fetch("/check_session").then((r) => {
+  //      if (r.ok) {
+  //        r.json().then((venue) => setVenue(venue));
+  //      }
+       
+  //    });
+  //  }, []);
+
+  //   if (!venue) return <VenueLogin onLogin={setVenue} />;
 
  
   return(
@@ -58,10 +60,14 @@ function App() {
             <UserLogin onLogin={setUser}/>
           </Route>
           <Route exact path="/login/venue">
-            <VenueLogin onLogin={setVenue}/>
+            <VenueLogin />
+            {/* <VenueLogin onLogin={setVenue}/> */}
           </Route>
           <Route exact path="/user/home">
             <UserHome onLogin={setUser}/>
+          </Route>
+          <Route exact path="/venue/home">
+            <VenueHome />
           </Route>
           <Route path="/">
             <Home/>

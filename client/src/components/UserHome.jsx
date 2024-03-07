@@ -52,9 +52,9 @@ console.log("hello")
         <main>
             <h1>user page</h1>
             <EventList events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}/>
-            {/* <NewEventForm> onNewEventFormSubmit={handleNewEventFormSubmit}</NewEventForm>
-            <Search> search={searchEvents} setSearch={setSearchEvents} </Search>
-            <EventList> events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}</EventList> */}
+            <NewEventForm onNewEventFormSubmit={handleNewEventFormSubmit}/> 
+            <Search search={searchEvents} setSearch={setSearchEvents} /> 
+         
         </main>
     );
 }

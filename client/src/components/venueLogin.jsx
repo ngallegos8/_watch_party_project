@@ -1,45 +1,61 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import App from "./App"
 
-function VenueLoginForm({ onLogin }){
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState()
-}
+function VenueLogin() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const history = useHistory();
+  const [venue, setVenue] = useState(null);
 
+  useEffect(() => {
 
+    fetch("/check_session").then((r) => {
+       if (r.ok) {
+         r.json().then((venue) => setVenue(venue));
+       }
+       
+     });
+   }, []);
+  //  if (!venue) return <App/>;
+  function handleSubmit(e) {
+    e.preventDefault();
+    setIsLoading(true);
+    fetch("/login/venue", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    })
+      .then((r) => {
+        setIsLoading(false);
+        if (r.ok) {
+          return r.json();
+        } else {
+          throw new Error("Invalid username or password");
+        }
+      })
+      .then((venue) => {
+        setVenue(venue.username, venue.password);
+       
+        history.push("/venue/home"); 
+      })
+      .catch((error) => {
+        console.error("Login failed:", error);
+      });
+  }
 
-
-function VenueLogin( {onLogin}) {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    //const [errors, setErrors] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        setIsLoading(true);
-        fetch("/login/venue", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ username, password }),
-        }).then((r) => {
-          setIsLoading(false);
-          if (r.ok) {
-            r.json().then((user) => onLogin(user));
-          } 
-        });
-      }
-    
-      return(
-        <form onSubmit={handleSubmit}>
-          <label>username</label>
-          <input value={username} onChange={(e) => setUsername(e.target.value)}></input>
-          <label>password</label>
-          <input value={password} onChange={(e) => setPassword(e.target.value)}></input>
-          <button type="submit">Log In</button>
-        </form>
-      )
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>Username</label>
+      <input value={username} onChange={(e) => setUsername(e.target.value)} />
+      <label>Password</label>
+      <input value={password} onChange={(e) => setPassword(e.target.value)} />
+      <button type="submit">Log In</button>
+    </form>
+  );
 }
 
 export default VenueLogin;

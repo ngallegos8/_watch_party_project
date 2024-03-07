@@ -7,7 +7,7 @@ function EventList({ events, removeEvent, updateEvent }) {
   const eventList = events.map(event => {
     return <EventCard key={event.id} event={event} removeEvent={removeEvent} updateEvent={updateEvent}/>  
   })
-
+ console.log(eventList)
   return (
     <ul className="cards">{eventList}</ul>
   );
