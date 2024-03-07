@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 # Standard library imports
+from datetime import datetime
 
 # Remote library imports
 from flask import Flask, request, session, make_response
@@ -160,9 +161,11 @@ class AllEvents(Resource): # This class will be used to GET (read) all events & 
     
     def post(self): # POST method to create a new event
         data = request.get_json()
+        formatted_date_time = datetime.strptime(data['date_time'], '%Y-%m-%dT%H:%M:%S.%fZ')
+        data['date_time'] = formatted_date_time
         new_event = Event(
             name = data["name"],
-            date = data["date"], # should we use date_time here like we did in Models.py? 
+            date_time = data["date_time"], # should we use date_time here like we did in Models.py? 
             description = data["description"]
         )
         db.session.add(new_event)
@@ -185,23 +188,23 @@ class EventByID(Resource): # This class will be used to GET (read) a single even
         )
         return response
     
-    def patch(self,id):
+    def patch(self, id):
         event = Event.query.filter(Event.id == id).first()
         if event:
             try:
-                data= request.get_json()
+                data = request.get_json()
+                formatted_date_time = datetime.strptime(data['date_time'], '%Y-%m-%dT%H:%M:%S.%fZ')
+                data['date_time'] = formatted_date_time
                 for value in data:
                     setattr(event, value, data[value])
                 db.session.add(event)
                 db.session.commit()
-                return event.to_dict(),202
+                return event.to_dict(), 202
             except Exception as e:
                 print(e)
                 return {"errors": ["validation errors"]}, 400
         else:
-            return {
-                "error": "Event not found"
-            }, 404
+            return {"error": "Event not found"}, 404
     
     def delete(self, id): # This method will delete a single event by id
         event = Event.query.filter_by(id=id).first()
