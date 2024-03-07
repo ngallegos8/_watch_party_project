@@ -48,13 +48,16 @@ function VenueLogin() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Username</label>
-      <input value={username} onChange={(e) => setUsername(e.target.value)} />
-      <label>Password</label>
-      <input value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button type="submit">Log In</button>
-    </form>
+        <div className="login-form">
+            <h1>Venue Log In</h1>
+            <form onSubmit={handleSubmit}>
+              <label>Enter Username</label>
+              <input type='text' value={username} onChange={(e) => setUsername(e.target.value)} />
+              <label>Enter Password</label>
+              <input type='text' value={password} onChange={(e) => setPassword(e.target.value)} />
+              <button type="submit">Log In</button>
+            </form>
+        </div>
   );
 }
 

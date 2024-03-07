@@ -9,7 +9,11 @@ import VenueLogin from './venueLogin'
 import UserHome from './UserHome'
 import VenueHome from './VenueHome'
 
+<<<<<<< HEAD
 //import UserLogin from './userLogin'
+=======
+// import UserLogin from './userLogin'
+>>>>>>> alan
 
 
 

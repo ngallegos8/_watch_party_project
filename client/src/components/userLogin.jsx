@@ -49,14 +49,17 @@ function UserLogin( {onLogin}) {
       }
     
       return(
-        <form onSubmit={handleSubmit}>
-          <label>username</label>
-          <input value={username} onChange={(e) => setUsername(e.target.value)}></input>
-          <label>password</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-          <button type="submit">Log In</button>
-        </form>
-      )
-}
+        <div className="login-form">
+            <h1>Log in to WatchParty</h1>
+            <form onSubmit={handleSubmit}>
+              <label>Enter Username</label>
+              <input type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
+              <label>Enter Password</label>
+              <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+              <button type="submit">Log In</button>
+            </form>
+          </div>
+      );
+};
 
 export default UserLogin;

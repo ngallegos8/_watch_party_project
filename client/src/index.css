@@ -17,22 +17,24 @@
 
 body, html {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f2f5;
+  background-color: whitesmoke;
   color: #333;
   font-size: 16px;
   line-height: 1.6;
-  background-color: #ccc; /* Add this line to set the background color to grey */
-}
+  background-color: whitesmoke; /* Add this line to set the background color to grey or whitesmoke */
 
+}
 
 /* NavBar Styles */
 .navBar {
   background-color: navy;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 1000;
-  padding: .5rem 1rem;  /* Reduced padding */
+  /* padding: .5rem 1rem;   */
+  /* Reduced padding */
 }
 
 .navBar a {
@@ -59,14 +61,20 @@ body, html {
   margin-right: 100px;  /* Adjust as needed */
 }
 
+
+
 /* Form Styles */
 form {
   background: #fff;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  max-width: 500px;
+  max-width: 400px;
   margin: 20px auto;
+}
+
+.login-form {
+  margin-top: 100px;
 }
 
 input[type="text"], input[type="password"], input[type="date"], input[type="time"] {
@@ -84,6 +92,15 @@ button {
   padding: 10px 15px;
   border-radius: 20px;
   cursor: pointer;
+}
+
+.btn {
+  margin-bottom: 5px;  /* Add space below the buttons */
+}
+
+.text {
+  margin-bottom: 20px;  /* Add space above the text */
+  white-space: nowrap;
 }
 
 button:hover {
@@ -124,6 +141,7 @@ button:hover {
 }
 
 body {
-  background-color: lightgrey;
+  background-color: whitesmoke;
+  
 }
 

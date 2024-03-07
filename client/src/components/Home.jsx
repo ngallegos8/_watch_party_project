@@ -12,16 +12,16 @@ function Home() {
             <div className="user-venue-container"> 
                 <div>
                     <h3>User</h3>
-                    <Link to="/signup/user"> <button >Join WatchParty</button> </Link><p></p>
-                    <p>Sign up to join the fun!</p>
-                    <Link to="/login/user"> <button >User Login</button> </Link><p></p>
+                    <Link to="/signup/user"> <button className='btn'>Join WatchParty</button> </Link>
+                    <p className="text">Sign up to join the fun!</p>
+                    <Link to="/login/user"> <button className="btn">User Login</button> </Link>
                 </div>
 
                 <div>
                     <h3>Venue</h3>
-                    <Link to="/signup/venue">   <button>Join WatchParty Pro</button> </Link><p></p>
-                    <p>Sign up as a venue to host events</p>
-                    <Link to="/login/venue">   <button>Venue Login</button>    </Link><p></p>
+                    <Link to="/signup/venue">   <button className='btn'>Join WatchParty Pro</button> </Link>
+                    <p className="text">Sign up as a venue to host events</p>
+                    <Link to="/login/venue">   <button className="btn">Venue Login</button>    </Link>
                 </div>
             </div>
         </div>
