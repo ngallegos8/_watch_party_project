@@ -184,6 +184,7 @@ class EventByID(Resource): # This class will be used to GET (read) a single even
             event_dict, 200
         )
         return response
+<<<<<<< HEAD
     
     def patch(self,id):
         event = Event.query.filter(Event.id == id).first()
@@ -202,6 +203,23 @@ class EventByID(Resource): # This class will be used to GET (read) a single even
             return {
                 "error": "Event not found"
             }, 404
+=======
+
+    def patch(self, id):
+        event = Event.query.filter_by(id=id).first()
+        data = request.get_json()
+        # event.name = data["name"]
+        # event.date = data["date"]
+        # event.description = data["description"]
+        # for attr in data:
+        #     print(attr)
+        #     setattr(event, attr, data[attr])
+        event.venue_id = session["venue_id"]
+        print(session)
+        db.session.add(event)
+        db.session.commit()
+        return make_response(event.to_dict(), 200)
+>>>>>>> jeff
     
     def delete(self, id): # This method will delete a single event by id
         event = Event.query.filter_by(id=id).first()
