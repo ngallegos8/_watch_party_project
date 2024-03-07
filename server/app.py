@@ -191,8 +191,11 @@ class EventByID(Resource): # This class will be used to GET (read) a single even
         # event.name = data["name"]
         # event.date = data["date"]
         # event.description = data["description"]
-        for attr in data:
-            setattr(event, attr, data[attr])
+        # for attr in data:
+        #     print(attr)
+        #     setattr(event, attr, data[attr])
+        event.venue_id = session["venue_id"]
+        print(session)
         db.session.add(event)
         db.session.commit()
         return make_response(event.to_dict(), 200)

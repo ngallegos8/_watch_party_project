@@ -11,15 +11,38 @@ function EventCard({ event, removeEvent, updateEvent }) {
 
 
   function handleDelete() {
-    fetch(`http://127.0.0.1:5555/events/${event.id}`, {
+    fetch(`/events/${event.id}`, {
       method: "DELETE"
     })
     removeEvent(event.id)
   }
 
+
+  function handleHost() {
+    alert("Hosted"); 
+    console.log(venue)
+    fetch(`/events/${event.id}`, {
+        method: "PATCH", 
+        headers: {
+            "Content-Type": "application/json", 
+        },
+        body: JSON.stringify({ [event.venue_id]: venue.id }), 
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+        }
+        // Handle successful response here
+    })
+    .catch(error => {
+        console.error("Error fetching data:", error);
+        // Handle error here
+    });
+}
+
   function handleUpdateSubmit(e) {
     e.preventDefault()
-    fetch(`http://127.0.0.1:5555/events/${event.id}`, {
+    fetch(`/events/${event.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
@@ -35,7 +58,7 @@ function EventCard({ event, removeEvent, updateEvent }) {
   }
 
   function handleAttend() {
-    fetch(`http://127.0.0.1:5555/events/${event.attending_count}`, {
+    fetch(`/events/${event.attending_count}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
@@ -65,6 +88,7 @@ function EventCard({ event, removeEvent, updateEvent }) {
 
             <button type="submit">Add Event</button>
         </form>
+        <button onClick={handleHost} >Host Event</button>
     </li>
   );
 }
