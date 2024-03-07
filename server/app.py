@@ -257,4 +257,3 @@ class VenueByID(Resource): # This class will be used to GET (read) a single venu
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
-
