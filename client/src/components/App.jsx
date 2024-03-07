@@ -75,7 +75,7 @@ function App() {
             {/* <VenueLogin onLogin={setVenue}/> */}
           </Route>
           <Route exact path="/user/home">
-            <UserHome onLogin={setUser}/>
+            <UserHome onLogin={user}/>
           </Route>
           <Route exact path="/venue/home">
             <VenueHome />

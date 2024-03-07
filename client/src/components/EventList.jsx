@@ -9,7 +9,10 @@ function EventList({ events, removeEvent, updateEvent }) {
   })
  console.log(eventList)
   return (
-    <ul className="cards">{eventList}</ul>
+      <>
+        <h1>Events near you</h1>
+        <ul className="cards">{eventList}</ul>
+      </>
   );
 }
 
