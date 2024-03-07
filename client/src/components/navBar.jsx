@@ -1,9 +1,10 @@
+import React from 'react';
 import {Link, useParams} from "react-router-dom";
 
 function NavBar(){
     return(
      <div>
-        <nav clasname="navbar">
+        <nav className="navBar">
             <Link to="/">  Home    </Link>
 
             <Link to="/signup/user">  Create Account    </Link>
