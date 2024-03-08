@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function EventCard({ event, removeEvent, updateEvent}) {
+function EventCard({ event, removeEvent, updateEvent }) {
   
   const [attendingCount, setAttendingCount] = useState(event.attending_count)
   const [venue, setVenue] = useState("")
@@ -9,7 +9,21 @@ function EventCard({ event, removeEvent, updateEvent}) {
   const [description, setDescription] = useState(event.description)
   const [showUpdateForm, setShowUpdateForm] = useState(false);
   const [newEvent, setNewEvent] = useState()
-  const [userType, setUserType] = useState("user");
+  const [userType, setUserType] = useState("user")
+  const [venueName, setVenueName] = useState("")
+
+  useEffect(() => {
+    // Fetch the venue details when the component mounts
+    fetch(`/venues/event/${event.venue_id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the venue name in state
+        setVenueName(data.venue_name);
+      })
+      .catch((error) => {
+        console.error("Error fetching venue details:", error);
+      });
+  }, [event.venue_id]);
 
 
   function handleDelete() {
@@ -129,7 +143,8 @@ function EventCard({ event, removeEvent, updateEvent}) {
       <p>Date: {event.date_time}</p>
       <p>Description: {event.description}</p>
       <p>RSVP's: {attendingCount}</p>
-      <p>Hosted By: {event.venue_id}</p>
+      <p>Hosted By: {venueName}</p>
+      {/* <p>Hosted By: {event.venue_id}</p> */}
       {/* <button onClick={handleAttend}>I want to attend this!</button> */}
       {userType === "user" && (
         <button onClick={handleAttend}>I want to attend this!</button>
@@ -153,7 +168,7 @@ function EventCard({ event, removeEvent, updateEvent}) {
             <input type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
             <button type="submit">Save Changes</button>
             </form>
-            <button onClick={handleHost} >Host Event</button><button onClick={handleUnHost}>Un-host</button>
+            {/* <button onClick={handleHost} >Host Event</button><button onClick={handleUnHost}>Un-host</button> */}
         </div>
       )}
     </li>

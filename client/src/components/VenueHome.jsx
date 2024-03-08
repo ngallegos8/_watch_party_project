@@ -1,9 +1,11 @@
 import React, {useState, useEffect } from "react";
 import NewEventForm from "./NewEventForm";
 import EventListV from "./EventListV";
+import EventListV from "./EventListV";
 import Search from "./Search";
 // Need to import user (object) info from "./userLogin" after login is successful
 
+function VenueHome() {
 function VenueHome() {
 console.log("hello")
     const [events, setEvents] = useState([]);
@@ -67,6 +69,7 @@ console.log("hello")
     return(
         <main>
             <h1>Vender Page</h1>
+            <EventListV events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent} userType={userType}/>
             <EventListV events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent} userType ={userType}/>
             {/* <NewEventForm> onNewEventFormSubmit={handleNewEventFormSubmit}</NewEventForm>
             <Search> search={searchEvents} setSearch={setSearchEvents} </Search>
@@ -77,4 +80,5 @@ console.log("hello")
     
 }
 
+export default VenueHome;
 export default VenueHome;
