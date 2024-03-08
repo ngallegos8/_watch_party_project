@@ -29,7 +29,7 @@ function Home() {
                     <h2>Our Partners</h2>
                     <img className="homeImage" src="https://preview.redd.it/nfl-team-partners-v0-9m1wbeswj7ub1.png?width=640&crop=smart&auto=webp&s=a98e3a4b89e889c440b64c77c8f7b9ed73dfa642" alt="Description of the image" />
                 </div>
-                <div>
+                <div className='home-testimonial'>
                     <h2>Fans</h2>
                     <p>Discover the ultimate gathering hub on WatchParty, where enthusiasts unite over shared passions, from thrilling sports game watch parties at local bars and restaurants to a wide array of local events. By signing up, not only can you align with fellow fans of your favorite teams, but you'll also gain exclusive access to FanWide promos including drink and food specials, discounts, and more. On the move? Let us connect you with the perfect spot to revel in the excitement, no matter where you are in the nation. Dive into a world of opportunities where checking in rewards you with specials, contest entries, and valuable rewards. Beyond sports, embrace your diverse interests—be it hiking, reading, networking, or skill-sharing—with thousands who share your enthusiasm. Every day brings a new event, a new chance to engage and enrich your experiences. Join WatchParty now, and step into a realm where your passions lead to extraordinary encounters.</p>
                     <div>
