@@ -4,6 +4,7 @@ function NewEventForm({ onNewEventFormSubmit }) {
   const [name, setName] = useState("")
   const [dateTime, setDateTime] = useState("")
   const [description, setDescription] = useState("")
+  const [imageFile, setImageFile] = useState("")
 
 
   function handleSubmit(e) {
@@ -14,7 +15,8 @@ function NewEventForm({ onNewEventFormSubmit }) {
     const newEvent = {
         name: name,
         date_time: formattedDateTime,
-        description: description
+        description: description,
+        image_file: imageFile
     }
     fetch("http://127.0.0.1:5555/events", {
         method: 'POST',
@@ -33,6 +35,7 @@ function NewEventForm({ onNewEventFormSubmit }) {
         setName(newEvent.name)
         setDateTime(newEvent.formattedDateTime)
         setDescription(newEvent.description)
+        setImageFile(newEvent.image_file)
 }
 
   return (
@@ -42,6 +45,7 @@ function NewEventForm({ onNewEventFormSubmit }) {
         <input type="text" name="name" placeholder="Event name" value={name} onChange={(e) => setName(e.target.value)}/>
         <input type="text" name="dateTime" placeholder="Date and Time of Event" value={dateTime} onChange={(e) => setDateTime(e.target.value)}/>
         <input type="text" name="description" placeholder="Brief Description of Event (100 Chars Max)" value={description} onChange={(e) => setDescription(e.target.value)}/>
+        <input type="text" name="image_file" placeholder="IMG URL" value={imageFile} onChange={(e) => setImageFile(e.target.value)}/>
 
         <button type="submit">Add Event</button>
       </form>
