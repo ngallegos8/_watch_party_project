@@ -2,6 +2,7 @@ import React, {useState, useEffect } from "react";
 import NewEventForm from "./NewEventForm";
 import EventList from "./EventList";
 import Search from "./Search";
+import { useHistory } from "react-router-dom";
 // Need to import user (object) info from "./userLogin" after login is successful
 
 function UserHome({ onLogin }) {
@@ -9,6 +10,8 @@ console.log("hello")
     const [events, setEvents] = useState([]);
     const [searchEvents, setSearchEvents] = useState("");
     const [userType, setUserType] = useState("user");
+    const [user, setUser] = useState(null)
+    const history = useHistory();
 
 
     useEffect(() => {
@@ -58,9 +61,26 @@ console.log("hello")
     //     return false;
     // });
 
+    function handleLogout() {
+        alert("See you next time!");
+        fetch("/logout", {
+            method: "DELETE"
+        })
+        .then(() => {
+            setUser(null);
+            // Redirect to the index page after logout
+            history.push("/");
+        })
+        .catch(error => {
+            // Handle error if needed
+            console.error("Error during logout:", error);
+        });
+    }
+
     return(
         <main>
             <h1>Welcome</h1>
+            <button onClick={handleLogout}>Logout</button>
             {/* <Search search={searchEvents} setSearch={setSearchEvents} /> */}
             <EventList events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent} userType={userType}/>
             <NewEventForm onNewEventFormSubmit={handleNewEventFormSubmit} />
