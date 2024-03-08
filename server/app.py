@@ -256,7 +256,7 @@ class EventByIDunHost(Resource):
         #     print(attr)
         #     setattr(event, attr, data[attr])
         #event.venue_id = session["venue_id"]
-        event.venue_id = null
+        event.venue_id = None
         print(session)
         print(data)
         db.session.add(event)
