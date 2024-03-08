@@ -243,6 +243,28 @@ button:hover {
 }
 
 /* Event Card */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Creates a responsive grid */
+  grid-gap: 20px; /* Space between grid items */
+  padding: 20px; /* Padding around the grid */
+  list-style: none; /* Removes default list styling */
+  margin: 20px auto; /* Centers the grid with some margin */
+}
+
+.card-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Ensures content is laid out top to bottom */
+  align-items: center; /* Aligns items in the center of the card */
+  justify-content: space-between; /* Distributes space evenly */
+}
+
+
+
 .page-title { 
   text-align: center; /* centers the page title in EventList comp.*/
   margin-top: 5px;
