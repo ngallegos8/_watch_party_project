@@ -37,6 +37,38 @@ function EventCardV({ event, removeEvent, updateEvent }) {
   function handleHost() {
     alert("Hosted"); 
     console.log(venue)
+        function handleAttend() {
+        alert("Attending!");
+        setVenueName(venueName => event.venue_name)
+        fetch(`http://127.0.0.1:5555/events/attend/${event.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ venue_name: event.venue_name })
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+          }
+          else {
+            return response.json()
+            
+            //.then((data) => {
+            //   // Set the venue name in state
+            //   setVenueName(data.venue_name);
+
+          }
+        })
+        .then((data) => {
+          // Set the venue name in state
+          setVenueName(data.venue_name);
+        })
+        .catch(error => {
+          console.error("Error fetching data:", error);
+        });
+        window.location.href = "http://localhost:3000/venue/home"
+      }
     fetch(`/events/host/${event.id}`, {
         method: "PATCH", 
         headers: {
@@ -61,6 +93,7 @@ function EventCardV({ event, removeEvent, updateEvent }) {
     alert("Unhosted")
     const drop = 0;
     //alert(drop)
+    setVenueName(venueName => null)
     fetch(`/events/unHost/${event.id}`, {
       method: "PATCH", 
       headers: {
@@ -147,7 +180,7 @@ function EventCardV({ event, removeEvent, updateEvent }) {
       <p>NO's: {attendingCount}</p>
       <p>Hosted By: {venueName}</p>
   
-      <button onClick={handleHost}>Host Event</button>
+      <button onClick={() => handleHost(venueName)}>Host Event</button>
   
       <button onClick={() => setShowUpdateForm(!showUpdateForm)}>
         {showUpdateForm ? "Hide Update Form" : "Update Event"}
