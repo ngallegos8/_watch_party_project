@@ -51,7 +51,7 @@ function UserLogin( {onLogin}) {
     
       return(
         <div className="user-login">
-            <form onSubmit={handleSubmit}>
+            <form className='login-form' onSubmit={handleSubmit}>
             <h1 className="form-title">Log in to WatchParty</h1>
             <p className='user-signup-link'>Not a member yet? <Link to="/signup/user">Sign up</Link></p>
               <label>Enter Username</label>

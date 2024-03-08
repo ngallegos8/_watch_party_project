@@ -50,8 +50,8 @@ function Signup() {
         return (
             <div className='user-signup'>
 
-                    <form onSubmit={handleSignup}>
-                    <h1 className="form-title">New User Account</h1>
+                    <form className='login-form' onSubmit={handleSignup}>
+                    <h1 className="form-title">Sign up for WatchParty</h1>
                     <p className='user-login-link'>Already a member? <Link to="/login/user">Log in</Link></p>
 
                     <div>
