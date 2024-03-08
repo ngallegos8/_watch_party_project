@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function EventCard({ event, removeEvent, updateEvent }) {
+function EventCardV({ event, removeEvent, updateEvent }) {
   
   
   const [attendingCount, setAttendingCount] = useState(event.attending_coumt)
@@ -10,7 +10,7 @@ function EventCard({ event, removeEvent, updateEvent }) {
   const [description, setDescription] = useState(event.description)
   const [showUpdateForm, setShowUpdateForm] = useState(false);
   const [newEvent, setNewEvent] = useState()
-  const [userType, setUserType] = useState("venue")
+
 
 
   function handleDelete() {
@@ -133,17 +133,13 @@ function EventCard({ event, removeEvent, updateEvent }) {
       <p>Description: {event.description}</p>
       <p>RSVP's: {attendingCount}</p>
       <p>Hosted By: {event.venue_id}</p>
-      {/* <button onClick={handleAttend}>I want to attend this!</button> */}
-      {userType === "user" && (
-        <button onClick={handleAttend}>I want to attend this!</button>
-      )}
-      {userType === "venue" && (
-        <button onClick={handleHost}>Host Event</button>
-      )}
+  
+      <button onClick={handleHost}>Host Event</button>
       <button onClick={() => setShowUpdateForm(!showUpdateForm)}>
         {showUpdateForm ? "Hide Update Form" : "Update Event"}
       </button>
       <button onClick={handleDelete} className="remove-event">Delete Event</button>
+      <button onClick={handleUnHost}>Unhost</button>
       {showUpdateForm && (
         <div>
           <h2>Update Event</h2>
@@ -163,4 +159,4 @@ function EventCard({ event, removeEvent, updateEvent }) {
 
 }
 
-export default EventCard;
+export default EventCardV;

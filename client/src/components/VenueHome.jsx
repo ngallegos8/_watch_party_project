@@ -1,13 +1,16 @@
 import React, {useState, useEffect } from "react";
 import NewEventForm from "./NewEventForm";
-import EventListV from "./EventList";
+import EventListV from "./EventListV";
 import Search from "./Search";
 // Need to import user (object) info from "./userLogin" after login is successful
 
-function EventHome() {
+function VenueHome() {
 console.log("hello")
     const [events, setEvents] = useState([]);
     const [searchEvents, setSearchEvents] = useState("");
+    const [userType, setUserType] = useState("venue");
+    const [venue, setVenue] = useState(null);
+
 
     
 
@@ -39,6 +42,19 @@ console.log("hello")
     setEvents(newEvents)
     }
 
+    function handleEventLogout(){
+        alert("logging out")
+
+        fetch("/logout", {
+            method: "DELETE"
+         })
+        .then(setVenue(null))
+
+        window.location.href = "http://localhost:3000/";
+    }
+
+
+    
     // const displayedEvents = events.filter((events) => events.name.toLowerCase().includes(searchEvents.toLowerCase()))
 
     //    ALLOWS SEARCH FUNCTION TO SEARCH FOR ANY RATIONAL PARAMETER IN THE EVENT OBJECT
@@ -51,12 +67,14 @@ console.log("hello")
     return(
         <main>
             <h1>Vender Page</h1>
-            <EventListV events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}/>
+            <EventListV events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent} userType ={userType}/>
             {/* <NewEventForm> onNewEventFormSubmit={handleNewEventFormSubmit}</NewEventForm>
             <Search> search={searchEvents} setSearch={setSearchEvents} </Search>
             <EventList> events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}</EventList> */}
+            <button onClick ={handleEventLogout}>log out</button>
         </main>
     );
+    
 }
 
-export default EventHome;
+export default VenueHome;
