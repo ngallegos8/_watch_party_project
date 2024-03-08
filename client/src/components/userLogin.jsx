@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 
 function UserLogin( {onLogin}) {
@@ -50,8 +51,9 @@ function UserLogin( {onLogin}) {
     
       return(
         <div className="user-login">
-            <h1>Log in to WatchParty</h1>
             <form onSubmit={handleSubmit}>
+            <h1 className="form-title">Log in to WatchParty</h1>
+            <p className='user-signup-link'>Not a member yet? <Link to="/signup/user">Sign up</Link></p>
               <label>Enter Username</label>
               <input type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
               <label>Enter Password</label>
