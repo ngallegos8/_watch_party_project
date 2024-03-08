@@ -1,11 +1,9 @@
 import React, {useState, useEffect } from "react";
 import NewEventForm from "./NewEventForm";
 import EventListV from "./EventListV";
-import EventListV from "./EventListV";
 import Search from "./Search";
 // Need to import user (object) info from "./userLogin" after login is successful
 
-function VenueHome() {
 function VenueHome() {
 console.log("hello")
     const [events, setEvents] = useState([]);
@@ -80,5 +78,4 @@ console.log("hello")
     
 }
 
-export default VenueHome;
 export default VenueHome;
