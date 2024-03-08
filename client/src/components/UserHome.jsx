@@ -82,8 +82,9 @@ console.log("hello")
 
     return(
         <main>
+            <div className="header-top"></div>
             <button className='login-btn' onClick={handleLogout}>Logout</button>
-            <h1 className="welcome-msg">Welcome { user }</h1>
+            <h1 className="welcome-msg">Welcome Back!{ user }</h1>
             <Search search={searchEvents} setSearch={setSearchEvents} />
             <EventList events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent} userType={userType}/>
             <NewEventForm onNewEventFormSubmit={handleNewEventFormSubmit} />

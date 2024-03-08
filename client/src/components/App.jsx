@@ -57,7 +57,7 @@ function App() {
  
   return(
     <BrowserRouter>
-      <NavBar/>
+      {/* <NavBar/> */}
   
     
           <Switch>

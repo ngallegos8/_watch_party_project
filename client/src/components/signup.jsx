@@ -59,6 +59,7 @@ function Signup() {
     else {
         return (
             <div className='user-signup'>
+                <div className="header-top"></div>
 
                     <form className='login-form' onSubmit={handleSignup}>
                     <h1 className="form-title">Sign up for WatchParty</h1>
@@ -70,7 +71,7 @@ function Signup() {
                     </div>
                         <label>Create Password</label>
                         <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-                        <button type="submit">Log in</button>
+                        <button type="submit">Sign Up</button>
                     </form>
    
             </div>

@@ -4,6 +4,7 @@ import {Link, useParams} from "react-router-dom";
 function Home() {
     return (
         <div className="home">
+            <div className="header-top"></div>
             <div>
                 <h1>Welcome to WatchParty!</h1>
                 <h2>The events platform — Where sports events & common interests become friendships</h2>

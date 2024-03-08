@@ -25,6 +25,31 @@ body, html {
 
 }
 
+
+.header-top {
+  background-color: navy;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: 0px;
+  height: 40px;
+  width: 100%;
+  z-index: 1000;
+  padding: 0.1rem 10rem; 
+}
+
+.searchbar {
+  width: 50%;
+  padding: 0.1rem 5rem;
+  /* margin: 50 auto; */
+}
+
+.welcome-msg {
+  width: 50%;
+  /* padding: 0.1rem 10rem; */
+  position: center;
+  /* margin: 150 auto; */
+}
+
+
 /* NavBar Styles */
 .login-btn {
   background-color: navy;
@@ -33,10 +58,11 @@ body, html {
   top: 0;
   z-index: 1000;
   position: fixed;
-  width:95%;
+  width: 70px;
   z-index: 1000;
   padding: 0.5rem 1rem; 
   text-align: right;
+  right: 20px;
   /* padding: .5rem 1rem;   */
   /* Reduced padding */
 }

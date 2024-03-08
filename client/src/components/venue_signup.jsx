@@ -53,6 +53,7 @@ function VenueSignup() {
     else {
         return(
             <div className='vendor-signup'>
+                <div className="header-top"></div>
                 <form className='login-form' onSubmit={handleSignup}>
                 <h1 className="form-title">Sign up as a Venue</h1>
                 <p className="venue-login-link">Already have a Venue account? <Link to='/login/venue'> Log in</Link></p>
@@ -64,7 +65,7 @@ function VenueSignup() {
                         <input type="text" value={location} onChange={(e) => setLocation(e.target.value)}></input>
                         <label>Enter Venue Name</label>
                         <input type="text" value={venueName} onChange={(e) => setVenueName(e.target.value)}></input>
-                        <button type="submit">Log in</button>
+                        <button type="submit">Sign Up</button>
                 </form>
             </div>
         )

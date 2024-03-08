@@ -69,6 +69,7 @@ console.log("hello")
     return(
         <main>
             <h1>Vender Page</h1>
+            <div className="header-top"></div>
             <button onClick ={handleEventLogout}>Log Out</button>
             <Search search={searchEvents} setSearch={setSearchEvents} />
             <EventListV events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent} userType={userType}/>
