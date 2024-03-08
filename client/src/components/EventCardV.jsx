@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function EventCard({ event, removeEvent, updateEvent }) {
+function EventCardV({ event, removeEvent, updateEvent }) {
   
   
   const [attendingCount, setAttendingCount] = useState(event.attending_coumt)
@@ -10,7 +10,7 @@ function EventCard({ event, removeEvent, updateEvent }) {
   const [description, setDescription] = useState(event.description)
   const [showUpdateForm, setShowUpdateForm] = useState(false);
   const [newEvent, setNewEvent] = useState()
-  const [userType, setUserType] = useState("venue")
+
 
 
   function handleDelete() {
@@ -67,25 +67,25 @@ function EventCard({ event, removeEvent, updateEvent }) {
   });
 }
 
-    function handleAttend() {
-        alert("Attending!");
-        setAttendingCount(prevCount => prevCount + 1)
-        fetch(`http://127.0.0.1:5555/events/attend/${event.id}`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ attending_count: event.attending_count + 1 })
-        })
-        .then(response => {
-        if (!response.ok) {
-            throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
-        }
-        })
-        .catch(error => {
-        console.error("Error fetching data:", error);
-        });
-    }
+    // function handleAttend() {
+    //     alert("Attending!");
+    //     setAttendingCount(prevCount => prevCount + 1)
+    //     fetch(`http://127.0.0.1:5555/events/attend/${event.id}`, {
+    //     method: "PATCH",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({ attending_count: event.attending_count + 1 })
+    //     })
+    //     .then(response => {
+    //     if (!response.ok) {
+    //         throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+    //     }
+    //     })
+    //     .catch(error => {
+    //     console.error("Error fetching data:", error);
+    //     });
+    // }
 
   function handleUpdateSubmit(e) {
     e.preventDefault();
@@ -131,15 +131,11 @@ function EventCard({ event, removeEvent, updateEvent }) {
       <h4>{event.name}</h4>
       <p>Date: {event.date_time}</p>
       <p>Description: {event.description}</p>
-      <p>RSVP's: {attendingCount}</p>
+      <p>NO's: {attendingCount}</p>
       <p>Hosted By: {event.venue_id}</p>
-      {/* <button onClick={handleAttend}>I want to attend this!</button> */}
-      {userType === "user" && (
-        <button onClick={handleAttend}>I want to attend this!</button>
-      )}
-      {userType === "venue" && (
-        <button onClick={handleHost}>Host Event</button>
-      )}
+
+      <button onClick={handleHost}>Host Event</button>
+  
       <button onClick={() => setShowUpdateForm(!showUpdateForm)}>
         {showUpdateForm ? "Hide Update Form" : "Update Event"}
       </button>
@@ -163,4 +159,4 @@ function EventCard({ event, removeEvent, updateEvent }) {
 
 }
 
-export default EventCard;
+export default EventCardV;

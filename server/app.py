@@ -292,6 +292,22 @@ class VenueByID(Resource): # This class will be used to GET (read) a single venu
         else:
             return {"message": "Venue not found."}, 404
 
+api.add_resource(VenueByID, "/venues/<int:id>")
+
+class VenueEventID(Resource):
+    def get(self, id):
+        venue = Venue.query.filter(Venue.id == id).first()
+        if(venue):
+            return venue.to_dict(),200
+            # return venue.venue_name,200
+        else:
+            return {
+                "error": "Venue not found"
+            }, 404
+
+api.add_resource(VenueEventID, "/venues/event/<int:id>")
+
+
 
 
 

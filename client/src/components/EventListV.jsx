@@ -1,11 +1,11 @@
 import React from "react";
 import EventCardV from "./EventCardV";
 
-function EventList({ events, removeEvent, updateEvent }) {   
+function EventListV({ events, removeEvent, updateEvent, userType}) {   
   console.log(events)
 
   const eventList = events.map(event => {
-    return <EventCardV key={event.id} event={event} removeEvent={removeEvent} updateEvent={updateEvent}/>  
+    return <EventCardV key={event.id} event={event} removeEvent={removeEvent} updateEvent={updateEvent} userType={userType}/>  
   })
  console.log(eventList)
   return (
@@ -17,4 +17,4 @@ function EventList({ events, removeEvent, updateEvent }) {
 }
 
 
-export default EventList;
+export default EventListV;
