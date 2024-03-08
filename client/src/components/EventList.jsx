@@ -1,11 +1,11 @@
 import React from "react";
 import EventCard from "./EventCard";
 
-function EventList({ events, removeEvent, updateEvent }) {   
+function EventList({ events, removeEvent, updateEvent, userType}) {   
   console.log(events)
 
   const eventList = events.map(event => {
-    return <EventCard key={event.id} event={event} removeEvent={removeEvent} updateEvent={updateEvent}/>  
+    return <EventCard key={event.id} event={event} removeEvent={removeEvent} updateEvent={updateEvent} userType={userType}/>  
   })
  console.log(eventList)
   return (

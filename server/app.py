@@ -197,8 +197,6 @@ class EventByID(Resource): # This class will be used to GET (read) a single even
                 data['date_time'] = formatted_date_time
                 for value in data:
                     setattr(event, value, data[value])
-                event.venue_id = session["venue_id"]
-                print(session)
                 db.session.add(event)
                 db.session.commit()
                 return event.to_dict(), 202
@@ -210,21 +208,7 @@ class EventByID(Resource): # This class will be used to GET (read) a single even
                 "error": "Event not found"
             }, 404
         
-    # Jeff hosted fix w/ David
-    # def patch(self, id):
-    #     event = Event.query.filter_by(id=id).first()
-    #     data = request.get_json()
-    #     # event.name = data["name"]
-    #     # event.date = data["date"]
-    #     # event.description = data["description"]
-    #     # for attr in data:
-    #     #     print(attr)
-    #     #     setattr(event, attr, data[attr])
-    #     event.venue_id = session["venue_id"]
-    #     print(session)
-    #     db.session.add(event)
-    #     db.session.commit()
-    #     return make_response(event.to_dict(), 200)
+
     
     def delete(self, id): # This method will delete a single event by id
         event = Event.query.filter_by(id=id).first()
@@ -236,6 +220,43 @@ class EventByID(Resource): # This class will be used to GET (read) a single even
             return {"message": "Event not found."}, 404
 
 api.add_resource(EventByID, "/events/<int:id>") 
+
+class EventByIDHost(Resource):
+    
+    def patch(self, id):
+        event = Event.query.filter_by(id=id).first()
+        data = request.get_json()
+        # event.name = data["name"]
+        # event.date = data["date"]
+        # event.description = data["description"]
+        # for attr in data:
+        #     print(attr)
+        #     setattr(event, attr, data[attr])
+        event.venue_id = session["venue_id"]
+        print(session)
+        db.session.add(event)
+        db.session.commit()
+        return make_response(event.to_dict(), 200)
+api.add_resource(EventByIDHost, "/events/host/<int:id>") 
+
+class EventByIDAttend(Resource):
+
+    def patch(self, id):
+        event = Event.query.filter(Event.id == id).first()
+        if event:
+            try:
+                data = request.get_json()
+                if 'attending_count' in data:
+                    event.attending_count = data['attending_count']
+                db.session.add(event)
+                db.session.commit()
+                return event.to_dict(), 202
+            except Exception as e:
+                print(e)
+                return {"errors": ["Validation errors"]}, 400
+        else:
+            return {"error": "Event not found"}, 404
+api.add_resource(EventByIDAttend, "/events/attend/<int:id>") 
 
 
 class AllVenues(Resource): # This class will be used to GET (read) all venues 
