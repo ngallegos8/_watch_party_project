@@ -45,8 +45,8 @@ with app.app_context():
     date_time_obj = datetime.datetime(*map(int, date_time_str.split(", ")))
 
     boxingMatch = Event(name ="boxing match", date_time=date_time_obj, description="a boxing match", attending_count="5")
-    tennisMatch = Event(name ="tennis match", date_time=date_time_obj, description="a tennis match", attending_count="4")
-    squashMatch = Event(name ="squash match", date_time=date_time_obj, description="a squash battle", attending_count="10")
+    tennisMatch = Event(name ="tennis match", date_time=date_time_obj, description="a tennis match", attending_count="4", venue_id="2")
+    squashMatch = Event(name ="squash match", date_time=date_time_obj, description="a squash battle", attending_count="10", venue_id="1")
     
     fillmore_venue = Venue(username="Fillmore", password="fillmore", venue_name ="The Fillmore", location="1234 colfax")
     gothic_venue = Venue(username="Gothic", password="gothic", venue_name ="The Gothic", location="1234 broadway")
