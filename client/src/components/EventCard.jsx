@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 function EventCard({ event, removeEvent, updateEvent}) {
   
-  const [attend, setAttend] = useState("")
   const [attendingCount, setAttendingCount] = useState(event.attending_count)
   const [venue, setVenue] = useState("")
   const [name, setName] = useState(event.name)
