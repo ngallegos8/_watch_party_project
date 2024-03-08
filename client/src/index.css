@@ -278,3 +278,8 @@ body {
 
   /* Add other styles as needed... */
 }
+
+.event-img {
+  width: 200px; /* Set the desired width */
+  height: 200px; /* Set the desired height */
+}

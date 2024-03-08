@@ -7,6 +7,7 @@ function EventCard({ event, removeEvent, updateEvent }) {
   const [name, setName] = useState(event.name)
   const [dateTime, setDateTime] = useState(event.date_time)
   const [description, setDescription] = useState(event.description)
+  const [imageFile, setImageFile] = useState(event.image_file)
   const [showUpdateForm, setShowUpdateForm] = useState(false);
   const [newEvent, setNewEvent] = useState()
   const [userType, setUserType] = useState("user")
@@ -116,7 +117,8 @@ function EventCard({ event, removeEvent, updateEvent }) {
           body: JSON.stringify({
             name: name,
             date_time: formattedDateTime, 
-            description: description
+            description: description,
+            image_file: imageFile
           })
         })
         .then(response => {
@@ -129,6 +131,7 @@ function EventCard({ event, removeEvent, updateEvent }) {
           setName(updatedEventData.name);
           setDateTime(updatedEventData.date_time);
           setDescription(updatedEventData.description);
+          setImageFile(updatedEventData.image_file)
 
           updateEvent(updatedEventData);
         })
@@ -144,6 +147,7 @@ function EventCard({ event, removeEvent, updateEvent }) {
       <p>Description: {event.description}</p>
       <p>RSVP's: {attendingCount}</p>
       <p>Hosted By: {venueName}</p>
+      <img src={imageFile} alt="event-img" className="event-img" />
       {/* <p>Hosted By: {event.venue_id}</p> */}
       {/* <button onClick={handleAttend}>I want to attend this!</button> */}
       {userType === "user" && (

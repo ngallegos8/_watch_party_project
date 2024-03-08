@@ -166,7 +166,8 @@ class AllEvents(Resource): # This class will be used to GET (read) all events & 
         new_event = Event(
             name = data["name"],
             date_time = data["date_time"], # should we use date_time here like we did in Models.py? 
-            description = data["description"]
+            description = data["description"],
+            image_file = data["image_file"]
         )
         db.session.add(new_event)
         db.session.commit()
