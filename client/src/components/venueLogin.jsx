@@ -58,6 +58,7 @@ function VenueLogin() {
               <label>Enter Password</label>
               <input type='text' value={password} onChange={(e) => setPassword(e.target.value)} />
               <button type="submit">Log In</button>
+              <p className='user-signup-link'><Link to="/">Go back to Home</Link></p>
             </form>
         </div>
   );

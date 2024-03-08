@@ -36,6 +36,7 @@ function UserLogin( {onLogin}) {
           if (r.ok) {
             return r.json();
           } else {
+            alert("Invalid credentials")
             throw new Error("Invalid username or password");
           } 
         })
@@ -59,6 +60,7 @@ function UserLogin( {onLogin}) {
               <label>Enter Password</label>
               <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input>
               <button type="submit">Log In</button>
+              <p className='user-signup-link'><Link to="/">Go back to Home</Link></p>
             </form>
           </div>
       );

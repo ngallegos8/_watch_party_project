@@ -51,8 +51,8 @@ console.log("hello")
     const displayedEvents = events.filter((event) => {
         console.log(event)
         return event.name.toLowerCase().includes(searchEvents.toLowerCase()) ||
-        event.date_time.toLowerCase().includes(searchEvents.toLowerCase()) ||
-        event.venue_id.toLowerCase().includes(searchEvents.toLowerCase())
+        event.date_time.toLowerCase().includes(searchEvents.toLowerCase())
+        // event.venue_id.toLowerCase().includes(searchEvents.toLowerCase())
       })
 
     // const displayedEvents = events.filter((event) => {
@@ -84,7 +84,7 @@ console.log("hello")
         <main>
             <button className='login-btn' onClick={handleLogout}>Logout</button>
             <h1 className="welcome-msg">Welcome { user }</h1>
-            {/* <Search search={searchEvents} setSearch={setSearchEvents} /> */}
+            <Search search={searchEvents} setSearch={setSearchEvents} />
             <EventList events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent} userType={userType}/>
             <NewEventForm onNewEventFormSubmit={handleNewEventFormSubmit} />
         </main>

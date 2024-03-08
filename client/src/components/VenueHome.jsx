@@ -41,6 +41,7 @@ console.log("hello")
     const newEvents = events.filter((event) => event.id !== id)
     setEvents(newEvents)
     }
+    
 
     function handleEventLogout(){
         alert("logging out")
@@ -59,17 +60,19 @@ console.log("hello")
 
     //    ALLOWS SEARCH FUNCTION TO SEARCH FOR ANY RATIONAL PARAMETER IN THE EVENT OBJECT
     const displayedEvents = events.filter((event) => {
+        console.log(event)
         return event.name.toLowerCase().includes(searchEvents.toLowerCase()) ||
-        event.date_time.toLowerCase().includes(searchEvents.toLowerCase()) ||
-        event.venue_id.toLowerCase().includes(searchEvents.toLowerCase())
-      })
+        event.date_time.toLowerCase().includes(searchEvents.toLowerCase())
+        // event.venue_id.toLowerCase().includes(searchEvents.toLowerCase())
+    })
 
     return(
         <main>
             <h1>Vender Page</h1>
-            <button onClick ={handleEventLogout}>log out</button>
+            <button onClick ={handleEventLogout}>Log Out</button>
+            <Search search={searchEvents} setSearch={setSearchEvents} />
             <EventListV events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent} userType={userType}/>
-            
+            <NewEventForm onNewEventFormSubmit={handleNewEventFormSubmit} />
             {/* <NewEventForm> onNewEventFormSubmit={handleNewEventFormSubmit}</NewEventForm>
             <Search> search={searchEvents} setSearch={setSearchEvents} </Search>
             <EventList> events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}</EventList> */}

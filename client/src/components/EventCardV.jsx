@@ -9,6 +9,7 @@ function EventCardV({ event, removeEvent, updateEvent }) {
   const [name, setName] = useState(event.name)
   const [dateTime, setDateTime] = useState(event.date_time)
   const [description, setDescription] = useState(event.description)
+  const [imageFile, setImageFile] = useState(event.image_file)
   const [showUpdateForm, setShowUpdateForm] = useState(false);
   const [newEvent, setNewEvent] = useState()
   const [venueName, setVenueName] = useState("")
@@ -113,8 +114,9 @@ function EventCardV({ event, removeEvent, updateEvent }) {
       },
       body: JSON.stringify({
         name: name,
-        date_time: formattedDateTime, // Send the formatted datetime
-        description: description
+        date_time: formattedDateTime, 
+        description: description,
+        image_file: imageFile
       })
     })
     .then(response => {
@@ -128,6 +130,7 @@ function EventCardV({ event, removeEvent, updateEvent }) {
       setName(updatedEventData.name);
       setDateTime(updatedEventData.date_time);
       setDescription(updatedEventData.description);
+      setImageFile(updatedEventData.image_file)
       // Optionally, you can update other state variables as needed
   
       // You can also call updateEvent if needed
@@ -144,8 +147,9 @@ function EventCardV({ event, removeEvent, updateEvent }) {
       <h4>{event.name}</h4>
       <p>Date: {event.date_time}</p>
       <p>Description: {event.description}</p>
-      <p>NO's: {attendingCount}</p>
+      <p>RSVP's: {attendingCount}</p>
       <p>Hosted By: {venueName}</p>
+      <img src={imageFile} alt="event-img" className="event-img" />
   
       <button onClick={handleHost}>Host Event</button>
   
