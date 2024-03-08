@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import { Link } from 'react-router-dom';
 
 function Signup() {
     const [user, setUser] = useState(null)
@@ -48,16 +49,20 @@ function Signup() {
     else {
         return (
             <div className='user-signup'>
-                <div>
-                    <h1>New User Account</h1>
+
                     <form onSubmit={handleSignup}>
+                    <h1 className="form-title">New User Account</h1>
+                    <p className='user-login-link'>Already a member? <Link to="/login/user">Log in</Link></p>
+
+                    <div>
                         <label>Create Username</label>
                         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    </div>
                         <label>Create Password</label>
                         <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}></input>
                         <button type="submit">Log in</button>
                     </form>
-                </div>
+   
             </div>
         );
     };
