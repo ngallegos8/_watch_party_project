@@ -67,12 +67,13 @@ console.log("hello")
     return(
         <main>
             <h1>Vender Page</h1>
+            <button onClick ={handleEventLogout}>log out</button>
             <EventListV events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent} userType={userType}/>
-            <EventListV events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent} userType ={userType}/>
+            
             {/* <NewEventForm> onNewEventFormSubmit={handleNewEventFormSubmit}</NewEventForm>
             <Search> search={searchEvents} setSearch={setSearchEvents} </Search>
             <EventList> events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}</EventList> */}
-            <button onClick ={handleEventLogout}>log out</button>
+            
         </main>
     );
     

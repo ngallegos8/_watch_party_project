@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 
 function EventCardV({ event, removeEvent, updateEvent }) {
   
@@ -10,8 +11,20 @@ function EventCardV({ event, removeEvent, updateEvent }) {
   const [description, setDescription] = useState(event.description)
   const [showUpdateForm, setShowUpdateForm] = useState(false);
   const [newEvent, setNewEvent] = useState()
+  const [venueName, setVenueName] = useState("")
 
-
+  useEffect(() => {
+    // Fetch the venue details when the component mounts
+    fetch(`/venues/event/${event.venue_id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the venue name in state
+        setVenueName(data.venue_name);
+      })
+      .catch((error) => {
+        console.error("Error fetching venue details:", error);
+      });
+  }, [event.venue_id]);
 
   function handleDelete() {
     fetch(`/events/${event.id}`, {
@@ -47,8 +60,8 @@ function EventCardV({ event, removeEvent, updateEvent }) {
   function handleUnHost(){
     alert("Unhosted")
     const drop = 0;
-    alert(drop)
-    fetch(`/events/${event.id}`, {
+    //alert(drop)
+    fetch(`/events/unHost/${event.id}`, {
       method: "PATCH", 
       headers: {
           "Content-Type": "application/json", 
@@ -132,7 +145,7 @@ function EventCardV({ event, removeEvent, updateEvent }) {
       <p>Date: {event.date_time}</p>
       <p>Description: {event.description}</p>
       <p>NO's: {attendingCount}</p>
-      <p>Hosted By: {event.venue_id}</p>
+      <p>Hosted By: {venueName}</p>
   
       <button onClick={handleHost}>Host Event</button>
   
