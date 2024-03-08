@@ -1,10 +1,12 @@
 import {useEffect, useState} from "react";
 import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 function Signup() {
     const [user, setUser] = useState(null)
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
+    const history = useHistory();
 
     useEffect(() => {
         fetch("/check_session").then((r) => {
@@ -27,7 +29,15 @@ function Signup() {
             })
         })
         .then(r => r.json())
-        .then(data => setUser(data))
+        .then(data => {
+            setUser(data);
+            // Redirect to UserHome if signup is successful
+            history.push("/user/home");
+        })
+        .catch(error => {
+            // Handle error if needed
+            console.error("Error during signup:", error);
+        });
     }
 
 

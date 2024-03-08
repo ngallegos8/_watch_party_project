@@ -222,6 +222,7 @@ api.add_resource(EventByID, "/events/<int:id>")
 class EventByIDHost(Resource):
     
     def patch(self, id):
+        print("hello")
         event = Event.query.filter_by(id=id).first()
         data = request.get_json()
         # event.name = data["name"]
@@ -230,12 +231,38 @@ class EventByIDHost(Resource):
         # for attr in data:
         #     print(attr)
         #     setattr(event, attr, data[attr])
-        event.venue_id = session["venue_id"]
+        buffer = session["venue_id"]
+        event.venue_id = buffer
+        #event.venue_id = session["venue_id"]
         print(session)
+        print(data)
         db.session.add(event)
         db.session.commit()
         return make_response(event.to_dict(), 200)
 api.add_resource(EventByIDHost, "/events/host/<int:id>")
+
+
+    
+class EventByIDunHost(Resource):
+
+    def patch(self, id):
+        
+        event = Event.query.filter_by(id=id).first()
+        data = request.get_json()
+        # event.name = data["name"]
+        # event.date = data["date"]
+        # event.description = data["description"]
+        # for attr in data:
+        #     print(attr)
+        #     setattr(event, attr, data[attr])
+        #event.venue_id = session["venue_id"]
+        event.venue_id = null
+        print(session)
+        print(data)
+        db.session.add(event)
+        db.session.commit()
+        return make_response(event.to_dict(), 200)
+api.add_resource(EventByIDunHost, "/events/unHost/<int:id>")
 
 class EventByIDAttend(Resource):
 
@@ -291,6 +318,22 @@ class VenueByID(Resource): # This class will be used to GET (read) a single venu
             return {"message": "The venue has been successfully deleted."}, 200 # Added response messages for successful deletion of "venue", or if venue is not found 
         else:
             return {"message": "Venue not found."}, 404
+
+api.add_resource(VenueByID, "/venues/<int:id>")
+
+class VenueEventID(Resource):
+    def get(self, id):
+        venue = Venue.query.filter(Venue.id == id).first()
+        if(venue):
+            return venue.to_dict(),200
+            # return venue.venue_name,200
+        else:
+            return {
+                "error": "Venue not found"
+            }, 404
+
+api.add_resource(VenueEventID, "/venues/event/<int:id>")
+
 
 
 
