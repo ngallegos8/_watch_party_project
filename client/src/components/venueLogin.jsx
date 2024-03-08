@@ -50,7 +50,7 @@ function VenueLogin() {
 
   return (
         <div className="vendor-login">
-            <form onSubmit={handleSubmit}>
+            <form className='login-form' onSubmit={handleSubmit}>
             <h1 className="form-title">Venue Log In</h1>
             <p className="venue-signup-link">Don't have a Venue account yet? <Link to='/signup/venue'> Sign up</Link></p>
               <label>Enter Username</label>

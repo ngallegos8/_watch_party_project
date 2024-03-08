@@ -37,7 +37,7 @@ function NewEventForm({ onNewEventFormSubmit }) {
 
   return (
     <div className="new-event-form" onSubmit={handleSubmit}>
-      <h2>New Event Form</h2>
+      <h2 className='form-title'>New Event Form</h2>
       <form>
         <input type="text" name="name" placeholder="Event name" value={name} onChange={(e) => setName(e.target.value)}/>
         <input type="text" name="dateTime" placeholder="Date and Time of Event" value={dateTime} onChange={(e) => setDateTime(e.target.value)}/>

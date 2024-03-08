@@ -60,7 +60,7 @@ console.log("hello")
 
     return(
         <main>
-            <h1>Welcome</h1>
+            <h1 className="welcome-msg">Welcome</h1>
             {/* <Search search={searchEvents} setSearch={setSearchEvents} /> */}
             <EventList events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent} userType={userType}/>
             <NewEventForm onNewEventFormSubmit={handleNewEventFormSubmit} />

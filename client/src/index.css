@@ -47,6 +47,12 @@ body, html {
 /* Home Page */
 .home {
   padding-top: 50px; /* Adjust based on navbar height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 50px;
 }
 
 .home h1, .home h2, .home h3 {
@@ -58,11 +64,61 @@ body, html {
 }
 
 .user-venue-container > div {
-  margin-right: 100px;  /* Adjust as needed */
+  margin-right: 40px;  /* Adjust as needed */
+  margin-top: 10px;
 }
 
 
-/* Create Account Page */
+.homeDescription {
+  width: 40%;
+  margin-top: 30px;
+  margin-right: 60px;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start; */
+  text-align: left;
+}
+
+/* .homeImageContainer {
+  flex: 1;
+  margin-right: 20px; /* Adjust as needed */
+
+.homeImage {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
+.homeDescription h2 {
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.homeDescription p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.homeDescription blockquote {
+  font-style: italic;
+  background: #f9f9f9;
+  border-left: 5px solid #007bff;
+  margin: 20px 0;
+  padding: 10px 20px;
+}
+
+.homeDescription cite {
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+  color: #444;
+}
+
+
+/* Create Account/Venue Page */
 .user-signup {
   padding-top: 50px
   /* Adjust as needed */
@@ -102,6 +158,13 @@ body, html {
   text-align: center;
 }
 
+.login-form {
+  border: 2px solid yellow;  /* Add a yellow border */
+  background-color: rgba(173, 216, 230, 0.5);  /* Make the background light blue with 50% opacity */
+  background-image: url('https://img.freepik.com/free-photo/friends-cheering-sport-bar-together_53876-14947.jpg');  /* Replace 'path-to-your-image.jpg' with the actual path to your image */
+  background-blend-mode: multiply;  /* This will blend the background color and the background image */
+  color: white;  /* Make the font color white */
+}
 
 /* Form Styles */
 form {
@@ -115,6 +178,7 @@ form {
 
 .form-title { 
   text-align: center;
+  margin-top: 20px;
   margin-bottom: 0em;
 
 }
@@ -132,7 +196,9 @@ button {
   background-color: #007bff;
   color: #fff;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 10px;
+  margin-top: 5px;
+  margin-right: 10px;
   border-radius: 20px;
   cursor: pointer;
 }
@@ -151,6 +217,13 @@ button:hover {
 }
 
 /* Event Card */
+.page-title { 
+  text-align: center; /* centers the page title in EventList comp.*/
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+
 .eventCard {
   background: #fff;
   border-radius: 8px;
@@ -159,6 +232,11 @@ button:hover {
   margin: 20px;
   display: flex;
   flex-direction: column;
+}
+
+.card-container {
+  
+  padding: 10px;
 }
 
 .eventName {

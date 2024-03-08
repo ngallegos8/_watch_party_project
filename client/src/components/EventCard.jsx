@@ -124,7 +124,7 @@ function EventCard({ event, removeEvent, updateEvent}) {
       
 
   return (
-    <li className="card">
+    <li className="card-container">
       <h4>{event.name}</h4>
       <p>Date: {event.date_time}</p>
       <p>Description: {event.description}</p>
