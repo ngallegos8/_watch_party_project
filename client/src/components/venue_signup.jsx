@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import { Link } from 'react-router-dom';
 
 function VenueSignup() {
     const [user, setUser] = useState(null)
@@ -51,8 +52,9 @@ function VenueSignup() {
     else {
         return(
             <div className='vendor-signup'>
-                <h1>New Venue</h1>
                 <form onSubmit={handleSignup}>
+                <h1 className="form-title">Sign up as a Venue</h1>
+                <p className="venue-login-link">Already have a Venue account? <Link to='/login/venue'> Log in</Link></p>
                         <label>Create Username</label>
                         <input type="text" value={name} onChange={(e) => setName(e.target.value)}></input>
                         <label>Create Password</label>

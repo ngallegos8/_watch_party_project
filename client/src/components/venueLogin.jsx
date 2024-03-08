@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import App from "./App"
 
 function VenueLogin() {
@@ -49,8 +50,9 @@ function VenueLogin() {
 
   return (
         <div className="vendor-login">
-            <h1>Venue Log In</h1>
             <form onSubmit={handleSubmit}>
+            <h1 className="form-title">Venue Log In</h1>
+            <p className="venue-signup-link">Don't have a Venue account yet? <Link to='/signup/venue'> Sign up</Link></p>
               <label>Enter Username</label>
               <input type='text' value={username} onChange={(e) => setUsername(e.target.value)} />
               <label>Enter Password</label>

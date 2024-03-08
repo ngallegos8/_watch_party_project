@@ -23,7 +23,7 @@ function EventCard({ event, removeEvent, updateEvent}) {
   function handleHost() {
     alert("Hosted"); 
     console.log(venue)
-    fetch(`http://127.0.0.1:5555/events/host/${event.id}`, {
+    fetch(`/events/host/${event.id}`, {
         method: "PATCH", 
         headers: {
             "Content-Type": "application/json", 
@@ -60,6 +60,32 @@ function EventCard({ event, removeEvent, updateEvent}) {
           console.error("Error fetching data:", error);
         });
       }
+      
+  function handleUnHost(){
+    alert("Unhosted")
+    const drop = 0;
+    alert(drop)
+    fetch(`/events/${event.id}`, {
+      method: "PATCH", 
+      headers: {
+          "Content-Type": "application/json", 
+      },
+      body: JSON.stringify({ [event.venue_id]: drop }), 
+  })
+  .then(response => {
+      if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+      }
+      // Handle successful response here
+  })
+  .catch(error => {
+      console.error("Error fetching data:", error);
+      // Handle error here
+  });
+}
+
+
+
 
       function handleUpdateSubmit(e) {
         e.preventDefault();
@@ -126,7 +152,8 @@ function EventCard({ event, removeEvent, updateEvent}) {
             <label>Update Description of Event (100 Chars Max)</label>
             <input type="text" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
             <button type="submit">Save Changes</button>
-          </form>
+            </form>
+            <button onClick={handleHost} >Host Event</button><button onClick={handleUnHost}>Un-host</button>
         </div>
       )}
     </li>

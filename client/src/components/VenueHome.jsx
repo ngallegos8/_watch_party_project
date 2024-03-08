@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from "react";
 import NewEventForm from "./NewEventForm";
-import EventList from "./EventList";
+import EventListV from "./EventList";
 import Search from "./Search";
 // Need to import user (object) info from "./userLogin" after login is successful
 
@@ -51,7 +51,7 @@ console.log("hello")
     return(
         <main>
             <h1>Vender Page</h1>
-            <EventList events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}/>
+            <EventListV events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}/>
             {/* <NewEventForm> onNewEventFormSubmit={handleNewEventFormSubmit}</NewEventForm>
             <Search> search={searchEvents} setSearch={setSearchEvents} </Search>
             <EventList> events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent}</EventList> */}

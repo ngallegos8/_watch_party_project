@@ -81,6 +81,27 @@ body, html {
   padding-top: 50px;
 }
 
+.user-login-link {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.user-signup-link {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.venue-login-link {
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+
+.venue-signup-link {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 
 /* Form Styles */
 form {
@@ -90,6 +111,12 @@ form {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   max-width: 400px;
   margin: 20px auto;
+}
+
+.form-title { 
+  text-align: center;
+  margin-bottom: 0em;
+
 }
 
 
@@ -161,3 +188,15 @@ body {
   
 }
 
+@media (max-width: 768px) {
+  body, html {
+    font-size: 12px;  /* Reduce font size */
+    padding: 0 0px;  /* Add some padding to prevent content from touching the edges */
+  }
+
+  .navBar {
+    padding: .5rem;  /* Reduce navbar padding */
+  }
+
+  /* Add other styles as needed... */
+}
