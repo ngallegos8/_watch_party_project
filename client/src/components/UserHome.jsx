@@ -3,6 +3,9 @@ import NewEventForm from "./NewEventForm";
 import EventList from "./EventList";
 import Search from "./Search";
 import { useHistory } from "react-router-dom";
+
+// Need to import the user from the session below
+import { user } from "./userLogin";
 // Need to import user (object) info from "./userLogin" after login is successful
 
 function UserHome({ onLogin }) {
@@ -79,8 +82,8 @@ console.log("hello")
 
     return(
         <main>
-            <h1 className="welcome-msg">Welcome</h1>
-            <button onClick={handleLogout}>Logout</button>
+            <button className='login-btn' onClick={handleLogout}>Logout</button>
+            <h1 className="welcome-msg">Welcome { user }</h1>
             {/* <Search search={searchEvents} setSearch={setSearchEvents} /> */}
             <EventList events={displayedEvents} removeEvent={removeEvent} updateEvent={handleUpdateEvent} userType={userType}/>
             <NewEventForm onNewEventFormSubmit={handleNewEventFormSubmit} />
